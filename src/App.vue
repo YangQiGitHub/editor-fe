@@ -4,8 +4,6 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
-    {{globalTest}}
-    <div @click="globlaMuTest">sdfsdf</div>
     <router-view/>
   </div>
 </template>
@@ -28,5 +26,13 @@ export default {
 </script>
 
 <style lang="less">
-
+html body {
+  background-color: #f3f4f7;
+}
+.ql-clipboard{
+  display: none;
+}
+.ql-editor{
+  outline: none;
+}
 </style>
