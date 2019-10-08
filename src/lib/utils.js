@@ -1,4 +1,4 @@
-import { MODEL_NAME, MODEL_ATTR } from '@/lib/constants'
+import { MODEL_NAME, MODEL_ATTR, PAGE_ATTR } from '@/lib/constants'
 
 export const initBlockId = function () {
   return +Date.now()
@@ -66,3 +66,12 @@ export const initModelDefaultData = function ({name}) {
   }
 }
 
+export const getModelHeight = function (model) {
+  const { height, paddingBottom, paddingTop } = model.pageInfo
+  return (height + paddingBottom + paddingTop)
+}
+
+export const getPageInnerHeight = function () {
+  const { height, paddingBottom, paddingTop } = PAGE_ATTR
+  return (height - paddingBottom - paddingTop)
+}

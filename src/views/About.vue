@@ -2,15 +2,15 @@
   <div class="about">
     <h1>This is an about page</h1>
     <menu-bar></menu-bar>
-    <div class="single-page" :style="singlePageStyle">
+    <div class="single-page" :style="singlePageStyle" v-for="(item, idx) in pageList" :key="idx">
       <div class="page-container">
-        <div class="inner">
-          <model-wrapper v-for="item in models" :key="item.blockId" :page-info="item.pageInfo" :block-id="item.blockId">
-            <chapter class="content" v-if="item.blockInfo.type === MODEL_NAME['CHAPTER']" :model="item"></chapter>
-            <note class="content" v-if="item.blockInfo.type === MODEL_NAME['NOTE']" :model="item"></note>
-            <chunk class="content" v-if="item.blockInfo.type === MODEL_NAME['CHUNK']" :model="item"></chunk>
-            <unit class="content" v-if="item.blockInfo.type === MODEL_NAME['UNIT']" :model="item"></unit>
-            <remark class="content" v-if="item.blockInfo.type === MODEL_NAME['REMARK']" :model="item"></remark>
+        <div class="inner" :style="`margin-top: ${item.marginTop}px`">
+          <model-wrapper v-for="model in item.list" :key="model.blockId" :page-info="model.pageInfo" :block-id="model.blockId">
+            <chapter class="content" v-if="model.blockInfo.type === MODEL_NAME['CHAPTER']" :model="model"></chapter>
+            <note class="content" v-if="model.blockInfo.type === MODEL_NAME['NOTE']" :model="model"></note>
+            <chunk class="content" v-if="model.blockInfo.type === MODEL_NAME['CHUNK']" :model="model"></chunk>
+            <unit class="content" v-if="model.blockInfo.type === MODEL_NAME['UNIT']" :model="model"></unit>
+            <remark class="content" v-if="model.blockInfo.type === MODEL_NAME['REMARK']" :model="model"></remark>
           </model-wrapper>
         </div>
       </div>
@@ -47,15 +47,15 @@ export default {
     }
   },
   created () {
-    this.getDocData();
+    // this.getDocData();
   },
   computed: {
     ...mapStateEditor([
-      'models'
+      'models',
+      'pageList'
     ]),
     singlePageStyle () {
       const { width, height, paddingTop, paddingBottom, paddingLeft, paddingRight } = PAGE_ATTR
-      console.log('==============', PAGE_ATTR)
       return {
         width: `${width}px`,
         height: `${height}px`,
@@ -64,7 +64,8 @@ export default {
         'padding-left': `${paddingLeft}px`,
         'padding-right': `${paddingRight}px`
       }
-    }
+    },
+
   },
   methods: {
     ...mapMutationsEditor([

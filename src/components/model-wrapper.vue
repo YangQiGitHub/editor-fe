@@ -47,7 +47,8 @@ export default {
   },
   methods: {
     ...mapMutationsEditor([
-      'changeModelInfo'
+      'changeModelInfo',
+      'makePageList'
     ]),
     handDown(who, evt) {
       const {clientY: y} = evt
@@ -68,6 +69,7 @@ export default {
           prop: `pageInfo.${this.tempXY.topOrBottom}`,
           val
         })
+        this.makePageList()
       }
     }
   }
@@ -79,7 +81,7 @@ export default {
   // padding: 20px;
   position: relative;
   &:hover{
-    border: 1px solid blue;
+    outline: 1px solid blue;
     .hand-shank{
       display: block;
     }

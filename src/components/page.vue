@@ -2,11 +2,11 @@
   <div class="page" :style="pageStyle">
     <div class="page-inner">
       <div class="model-wrap" v-for="item in models" :key="item.blockId">
-        <chapter class="content" v-if="item.blockInfo.type === MODEL_NAME['CHAPTER']" :model="item"></chapter>
-        <note class="content" v-if="item.blockInfo.type === MODEL_NAME['NOTE']" :model="item"></note>
-        <chunk class="content" v-if="item.blockInfo.type === MODEL_NAME['CHUNK']" :model="item"></chunk>
-        <unit class="content" v-if="item.blockInfo.type === MODEL_NAME['UNIT']" :model="item"></unit>
-        <remark class="content" v-if="item.blockInfo.type === MODEL_NAME['REMARK']" :model="item"></remark>
+        <chapter class="content" v-if="item.blockInfo.type === MODEL_NAME['CHAPTER']" :model="item" :data-blockid="item.blockId"></chapter>
+        <note class="content" v-if="item.blockInfo.type === MODEL_NAME['NOTE']" :model="item" :data-blockid="item.blockId"></note>
+        <chunk class="content" v-if="item.blockInfo.type === MODEL_NAME['CHUNK']" :model="item" :data-blockid="item.blockId"></chunk>
+        <unit class="content" v-if="item.blockInfo.type === MODEL_NAME['UNIT']" :model="item" :data-blockid="item.blockId"></unit>
+        <remark class="content" v-if="item.blockInfo.type === MODEL_NAME['REMARK']" :model="item" :data-blockid="item.blockId"></remark>
       </div>
     </div>
   </div>

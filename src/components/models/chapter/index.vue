@@ -27,7 +27,7 @@ export default {
       }
 
       this.editor1 = new Quill(this.$refs.chapter1, option)
-      console.log(this.model.blockInfo.richText1, this.$refs.chapter1)
+      // console.log(this.model.blockInfo.richText1, this.$refs.chapter1)
       if (this.model.blockInfo.richText1) {
         this.$refs.chapter1.querySelector('.ql-editor').innerHTML = this.model.blockInfo.richText1;
       }
@@ -38,7 +38,7 @@ export default {
       })
 
       this.editor2 = new Quill(this.$refs.chapter2, option)
-      console.log(this.model.blockInfo.richText2, this.$refs.chapter2)
+      // console.log(this.model.blockInfo.richText2, this.$refs.chapter2)
       if (this.model.blockInfo.richText2) {
         this.$refs.chapter2.querySelector('.ql-editor').innerHTML = this.model.blockInfo.richText2;
       }

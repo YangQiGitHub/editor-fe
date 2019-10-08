@@ -52,7 +52,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 .remark{
-    line-height: 2;
+    line-height: 1.2;
     background: rgb(239, 247, 240);
     border-radius: 5px;
     border: 1px solid rgb(0, 169, 95);
